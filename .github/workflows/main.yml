@@ -1,0 +1,8 @@
+name: Hprofile Actions      #name-of-the-workflow. This name appears in the action tab.
+on: workflow_dispatch       #mention-what-will-trigger-the-workflow
+jobs:
+  Testing:                  #name-of-the-job
+    runs-on: ubuntu-latest   #specify-on-which-runner-you-need-to-run-this-job
+    steps:
+      - name: Testing workflow       # A-name-for-your-step-to-display-on-GitHub
+        run: echo "Workflow works"
