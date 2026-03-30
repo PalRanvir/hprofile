@@ -4,5 +4,11 @@ jobs:
   Testing:                  #name-of-the-job
     runs-on: ubuntu-latest   #specify-on-which-runner-you-need-to-run-this-job
     steps:
-      - name: Testing workflow       # A-name-for-your-step-to-display-on-GitHub
-        run: echo "Workflow works"
+      - name: Code Checkout   
+        uses: actions/checkout@v6   #checkout-the-code-to-the-runner
+      
+      - name: Maven Test
+        run: mvn test   #run-the-maven-test-command
+
+      - name: Checkstyle
+        run: mvn checkstyle:checkstyle   #run-the-maven-checkstyle-command
