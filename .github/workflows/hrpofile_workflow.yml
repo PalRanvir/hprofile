@@ -12,5 +12,5 @@ jobs:
          distribution: 'temurin' # See 'Supported distributions' for available options
          java-version: '11'
       - name: install maven
-        run: apt install maven
+        run: sudo pt install maven
   
