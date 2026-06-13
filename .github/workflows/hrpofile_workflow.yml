@@ -15,5 +15,7 @@ jobs:
         run: mvn test
       - name: Checkstyle
         run: mvn checkstyle:checkstyle
-      - run: ls -l
+      - run: |
+         ls -l
+         tree
   
