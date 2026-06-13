@@ -4,13 +4,16 @@ jobs:
   testing_job:
     runs-on: ubuntu-latest
     steps:
-      - name: checkout code
+      - name: Checkout code
         uses: actions/checkout@v6
-      - name: install java 11
+      - name: Set Java 11
         uses: actions/setup-java@v5
         with:
          distribution: 'temurin' # See 'Supported distributions' for available options
          java-version: '11'
-      - name: install maven
-        run: sudo apt install maven
+      - name: Maven Test
+        run: mvn test
+      - name: Checkstyle
+        run: mvn checkstyle:checkstyle
+      - run: ls -l
   
