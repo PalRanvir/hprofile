@@ -1,0 +1,16 @@
+name: hprofile_workflow
+on: workflow_dispatch
+jobs:
+  testing_job:
+    runs-on: ubuntu-latest
+    steps:
+      - name: checkout code
+        uses: actions/checkout@v6
+      - name: install java 11
+        uses: actions/setup-java@v5
+        with:
+         distribution: 'temurin' # See 'Supported distributions' for available options
+         java-version: '11'
+      - name: install maven
+        run: apt install maven
+  
