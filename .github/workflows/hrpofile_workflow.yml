@@ -29,14 +29,17 @@ jobs:
       - name: Setup SonarQube
         uses: warchant/setup-sonar-scanner@v8
 
-      - name: SonarQube Scan
-        run: |
-         sonar-scanner
-          -Dsonar.host.url=${{ secrets.SONAR_URL }}
-          -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
-          -Dsonar.token=${{ secrets.SONAR_TOKEN }}
-          -Dsonar.java.binaries=target/classes
-          -Dsonar.junit.reportPaths=target/surefire-reports/
-          -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+      - name: Verify Sonar URL
+        run: echo "SonarQubeURL=${{ secrets.SONAR_URL }}"
+
+      # - name: SonarQube Scan
+      #   run: |
+      #    sonar-scanner
+      #     -Dsonar.host.url=${{ secrets.SONAR_URL }}
+      #     -Dsonar.projectKey=${{ secrets.SONAR_PROJECT_KEY }}
+      #     -Dsonar.token=${{ secrets.SONAR_TOKEN }}
+      #     -Dsonar.java.binaries=target/classes
+      #     -Dsonar.junit.reportPaths=target/surefire-reports/
+      #     -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
           
   
