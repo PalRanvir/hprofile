@@ -14,9 +14,9 @@ jobs:
       - name: Build and Test
         run: mvn clean verify
 
-      - name: Verify Reports
-        run: |
-          ls -R target
+      # - name: Verify Reports
+      #   run: |
+      #     ls -R target
 
       - name: Publish Test Results
         uses: dorny/test-reporter@v1
@@ -29,9 +29,9 @@ jobs:
       - name: Setup SonarQube
         uses: warchant/setup-sonar-scanner@v8
 
-      - name: Test SonarQube Connectivity
-        run: |
-          curl -I ${{ secrets.SONAR_URL }}
+      # - name: Test SonarQube Connectivity
+      #   run: |
+      #     curl -I ${{ secrets.SONAR_URL }}
 
       - name: SonarQube Scan
         run: |
@@ -41,6 +41,7 @@ jobs:
           -Dsonar.token=${{ secrets.SONAR_TOKEN }} \
           -Dsonar.java.binaries=target/classes \
           -Dsonar.junit.reportPaths=target/surefire-reports/ \
-          -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml
+          -Dsonar.coverage.jacoco.xmlReportPaths=target/site/jacoco/jacoco.xml \
+          -Dsonar.qualitygate.wait=true
           
   
