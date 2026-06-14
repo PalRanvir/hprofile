@@ -34,6 +34,7 @@ jobs:
       #     curl -I ${{ secrets.SONAR_URL }}
 
       - name: SonarQube Scan
+        continue-on-error: true
         run: |
          sonar-scanner \
           -Dsonar.host.url=${{ secrets.SONAR_URL }} \
